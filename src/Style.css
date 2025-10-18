@@ -1,4 +1,268 @@
-h1 {
-    color: blue;
-    text-align: center;
+/* 🌈 Global Styles */
+* {
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(135deg, #89f7fe, #66a6ff);
+  color: #222;
+  min-height: 100vh;
+}
+
+/* 🧭 App Container */
+.App {
+  max-width: 760px;
+  margin: 60px auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(18px);
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+/* 🏷️ Title and Tagline */
+.title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 6px;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #444;
+  margin-bottom: 28px;
+}
+
+/* 📝 Task Form Section */
+.task-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 24px;
+  justify-content: center;
+}
+
+#inp {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: inset 0 1px 6px rgba(0, 0, 0, 0.05);
+}
+
+#inp input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1rem;
+  color: #222;
+}
+
+/* ✨ Add Button */
+#inp button {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 191, 255, 0.4);
+}
+
+#inp button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 191, 255, 0.55);
+}
+
+/* 🎯 Dropdown Selectors (Category + Priority) */
+#btns {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+#btns select {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: #333;
+  appearance: none;
+  background-image: linear-gradient(135deg, #a8edea, #fed6e3);
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+#btns select:hover {
+  background-image: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+  transform: scale(1.05);
+}
+
+/* 📋 Task List */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+/* 🧩 Individual Task Cards */
+.task-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 14px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: scale(1);
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+/* ✅ Task completed with smooth strike */
+.task-list li.completed span {
+  text-decoration: line-through;
+  opacity: 0.6;
+  color: #777;
+  transition: all 0.3s ease;
+}
+
+.task-list li.completed {
+  background: rgba(200, 255, 200, 0.5);
+  box-shadow: 0 4px 14px rgba(100, 200, 100, 0.2);
+}
+
+/* ✍️ Task Text */
+.task-list span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #111;
+}
+
+.task-list small {
+  display: block;
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 4px;
+}
+
+/* ✨ Buttons inside Task Cards */
+.task-list button {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-left: 6px;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ✅ Complete Button */
+.task-list button:first-child {
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
+  box-shadow: 0 4px 10px rgba(56, 249, 215, 0.4);
+}
+
+.task-list button:first-child:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(56, 249, 215, 0.6);
+}
+
+/* ❌ Delete Button */
+.task-list button:last-child {
+  background: linear-gradient(135deg, #ff6a88, #ff99ac);
+  box-shadow: 0 4px 10px rgba(255, 105, 135, 0.4);
+}
+
+.task-list button:last-child:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 105, 135, 0.6);
+}
+
+/* 📊 Progress Tracker */
+.progress-tracker {
+  margin-top: 28px;
+  text-align: center;
+}
+
+.progress-tracker p {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  height: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, #84fab0, #8fd3f4);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+/* 🧹 Clear All Button */
+.clear-btn {
+  margin-top: 24px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 0 5px 18px rgba(102, 126, 234, 0.4);
+}
+
+.clear-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(118, 75, 162, 0.5);
+}
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+  .App {
+    padding: 24px;
+    margin: 20px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  #inp button {
+    padding: 8px 12px;
+  }
+
+  #inp {
+    flex-direction: column;
+  }
+
+  .clear-btn {
+    font-size: 0.9rem;
+  }
 }
